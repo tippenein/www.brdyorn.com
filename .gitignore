@@ -1,0 +1,9 @@
+*.o
+*.hi
+*~
+site
+dist/
+cabal-dev/
+_cache/
+*.swp
+.hsenv
