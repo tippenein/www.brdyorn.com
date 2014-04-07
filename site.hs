@@ -8,11 +8,26 @@ import Data.List
 -- | Main entry point.
 main :: IO ()
 main = hakyll $ do
-  match "posts/*" $ do
-    route   $ setExtension ""
-    compile $ pageCompiler
+  match "templates/*" $ compile templateCompiler
 
-  match "stylesheets/" $ do
+  match "css/*" $ do
     route idRoute
     compile compressCssCompiler
 
+  match "imgs/*" $ do
+    route idRoute
+    compile copyFileCompiler
+
+  match ("favicon.ico"
+        .||. "404.html"
+        .||. "imgs/*"
+        .||. "robots.txt"
+        .||. "resume.pdf") $ do
+    route idRoute
+    compile copyFileCompiler
+
+  match "*.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
