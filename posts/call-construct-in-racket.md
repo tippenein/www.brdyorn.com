@@ -1,17 +1,13 @@
- 
-{{{
-  "title" : "Structure of 'call' in a programming language",
-  "tags"  : ["racket", "scheme", "functional programming", "call", "closures", "programming languages"],
-  "category" : "programming languages",
-  "date" : "3/20/2013",
-  "syntax" : "scheme"
-}}}
+---
+title: Structure of 'call' in a programming language
+tags: racket, scheme, functional programming, call, closures, programming languages
+date: 3/20/2013
+---
+
 #### Grokking the 'call' construct
 While implementing the MUPL (Made Up Programming Language) for a programming languages course I found call to be interesting. I'll underline some of the implementation here.
 
 Now, call isn't necessarily a difficult concept. It's used all the time in jQuery and javascript to alter the `this` of a function call and here we'll do a similar thing, but it seems more fun because you're also using lexical scope and closure environment within the call implementation. It's easier if I just show some of the code.
-
-<!--more-->
 
 
     (define (eval-exp e) 

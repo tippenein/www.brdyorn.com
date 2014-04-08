@@ -1,9 +1,8 @@
-{{{
-    "title":"REST exception handling with decorators",
-    "tags" :["decorators", "REST", "exceptions", "python"],
-    "date" : "07/25/2013",
-    "category": "python"
-}}}
+---
+title: REST exception handling with decorators
+tags: decorators, REST, exceptions, python
+date: 07/25/2013
+---
 
 #### Raising REST exceptions
 I can't decide if this is the "right" way of doing this, but it seems relatively succinct, so I'll attempt to describe how I handled exceptions for a REST api in django.
@@ -27,9 +26,6 @@ Say you need to return user info and the info given for user lookup fails.
 - The `exceptions` import is for general error catching and it allows you to collect all your exception definitions for specific modules.
 - `decorators.rest` holds... well, decorator functions specific to REST stuff. You don't need a separate directory `decorators` but I happened to have more decorator types than were sensible to put in the main modules dir..
 - `rest_exceptions` is similar to exceptions but these will need to define a status code to return and inherit from a exception class we define called `RestException`
-
-
-<!--more-->
 
 
 ####Exception Decorator

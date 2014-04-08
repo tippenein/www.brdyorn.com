@@ -7,7 +7,6 @@ import Data.Ord
 import Data.List
 import Data.Monoid
 import Control.Arrow
-import Control.Category
 
 -- | Main entry point.
 main :: IO ()
@@ -24,12 +23,6 @@ main = hakyll $ do
   match "index.html" $ do
     route idRoute
     compile $ copyFileCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
-  -- index route
-  -- match "index" $ route $ idRoute
-  -- create "index"
-  -- route idRoute
-  -- compile $ copyFileCompiler
 
   match "*.md" $ do
     route $ setExtension "html"
@@ -41,23 +34,53 @@ main = hakyll $ do
     route idRoute
     compile compressCssCompiler
 
-  -- Render RSS feed
-  -- match "rss.xml" $ route idRoute
-  -- create "rss.xml" $
-  --   requireAll_ "posts/*"
-  --     >>> arr dateOrdered
-  --     >>> arr reverse
-  --     >>> renderRss feedConfiguration
+  tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+  match "posts/*" $ do
+      route $ setExtension "html"
+      compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/post.html" (taggedPostCtx tags)
+          >>= saveSnapshot "content"
+          >>= loadAndApplyTemplate "templates/default.html" postCtx
+          >>= relativizeUrls
 
--- | Sort pages by their date field.
--- dateOrdered :: [Page a] -> [Page a]
--- dateOrdered = sortBy (comparing (getField "date"))
+  create ["posts.html"] $ do
+    route idRoute
+    compile $ do
+      let archiveCtx =
+              field "posts" (const $ postList recentFirst) `mappend`
+              constField "title" "Posts" `mappend`
+              defaultContext
+      makeItem ""
+          >>= loadAndApplyTemplate "templates/posts.html" archiveCtx
+          >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+          >>= relativizeUrls
 
-feedConfiguration :: FeedConfiguration
-feedConfiguration = FeedConfiguration
+  create ["rss.xml"] $ do
+    route idRoute
+    compile $ do
+      let feedCtx = postCtx `mappend`
+              constField "description" "This is the post description"
+      posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
+      renderRss myFeedConfiguration feedCtx posts
+
+myFeedConfiguration :: FeedConfiguration
+myFeedConfiguration = FeedConfiguration
   { feedTitle = "Brady Ouren's home page feed."
   , feedDescription = "Brady Ouren's home page feed."
   , feedAuthorName = "Brady Ouren"
   , feedAuthorEmail = "bradyouren@gmail.com"
   , feedRoot = "http://brdyorn.com"
   }
+
+postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
+postList sortFilter = do
+  posts <- sortFilter =<< loadAll "posts/*"
+  itemTpl <- loadBody "templates/post-item.html"
+  list <- applyTemplateList itemTpl postCtx posts
+  return list
+
+taggedPostCtx :: Tags -> Context String
+taggedPostCtx tags = tagsField "tags" tags `mappend` postCtx
+
+postCtx :: Context String
+postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext

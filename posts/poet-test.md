@@ -1,10 +1,8 @@
-{{{
-  "title" : "Poet and node.js",
-  "tags"  : ["node.js", "express", "poet", "jade"],
-  "category" : "node.js",
-  "date" : "1/17/2013",
-  "syntax" : "js"
-}}}
+---
+title: Poet and node.js
+tags: node.js, express, poet, jade
+date: 1/17/2013
+---
 
 #### A quick start
 Since I didn't have time to roll my own blog controller, I'm trying out Poet today. 
@@ -12,8 +10,6 @@ I had some [unrelated problems](http://stackoverflow.com/questions/14409242/trac
 with jade views and my negligence in reading the documentation, but overall it was very painless.
 
 Basically all you'll need to do to enable it is a simple `npm install poet -S` to save it in your package.json and in your app.js:
-
-<!--more-->
 
 
     poet = require('poet')(app)

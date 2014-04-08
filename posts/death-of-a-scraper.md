@@ -1,9 +1,8 @@
-{{{
-    "title":"Death of a scraper",
-    "tags" :["webapp", "api", "scraper"],
-    "date" : "06/02/2013",
-    "category": "web"
-}}}
+---
+title: Death of a scraper
+tags: webapp, api, scraper
+date: 06/02/2013
+---
 
 ####Scraping is dumb
 Scraping is a simple way of getting some info quickly, but that shit's going to break sooner or later. The site you're scraping will change its layout or the contents of divs and you'll be left with a big pile of garbage that will always need "fixing." 

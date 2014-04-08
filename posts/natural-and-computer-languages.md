@@ -1,9 +1,8 @@
-{{{
-    "title":"Natural Language and Computer Language",
-    "tags" :["programming languages","lisp","paul graham", "esr","linguistic relativism", "Ludwig Wittgenstein"],
-    "date" : "04/19/2013",
-    "category": "programming languages"
-}}}
+---
+title: Natural Language and Computer Language
+tags: programming languages,lisp,paul graham, esr,linguistic relativism, Ludwig Wittgenstein
+date: 04/19/2013
+---
 
 ####Language -> Objects or Objects -> Language
 

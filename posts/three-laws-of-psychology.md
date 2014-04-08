@@ -1,16 +1,14 @@
-{{{
-    "title":"Comparison Trap",
-    "tags" :["life", "zen"],
-    "date" : "3/19/2013",
-    "category": "life"
-}}}
+---
+title: Comparison Trap
+tags: life, zen
+date: 3/19/2013
+---
 
 #### Comparison trap
 Being bad at something and realizing it is the first step to being slightly better at that something. I enjoy having friends who are much better than me at programming and I often feel inferior because I often times am. There are always people better than you at something and a negative outlook on that doesn't help anyone.
 
 > Comparison is the thief of joy
 
-<!--more-->
 This quote should probably be taken with a grain of salt since it came from this guy...
 
 ![roosevelt riding a moose](/imgs/_posts/roosevelt-moose.jpg)

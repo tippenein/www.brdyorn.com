@@ -1,15 +1,12 @@
-{{{
-    "title":"Let's play 'Feature or Defect!'",
-    "tags" :["python", "arguments", "feature-or-defect"],
-    "date" : "08/20/2013",
-    "category": "python"
-}}}
+---
+title: Let's play 'Feature or Defect!
+tags: python, arguments, feature-or-defect
+date: 08/20/2013
+---
 
 #### Lolwhut?!
 
 Sometimes you run into programming language "features" that make you wonder if that was the intended effect. This particular one involves python and a mutable default function argument. Here's a quick example:
-
-<!--more-->
 
     >>> def foo(a=[]):
     ...   a.append(1)

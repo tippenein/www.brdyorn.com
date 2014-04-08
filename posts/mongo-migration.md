@@ -1,9 +1,8 @@
-{{{
-  "title":"Simple Mongo Migration",
-  "tags" :["mongo", "db", "migration"],
-  "date" : "09/05/2013",
-  "category": "mongo"
-}}}
+---
+title: Simple Mongo Migration
+tags: mongo, db, migration
+date: 09/05/2013
+---
 
 #### Javascript instead of SQL
 

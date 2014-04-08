@@ -1,10 +1,8 @@
-{{{
-  "title" : "Prototyping a classroom schedule scraper",
-  "tags"  : ["flask", "python", "beautifulsoup", "sqlite", "webapp"],
-  "category" : "python",
-  "date" : "2/1/2013",
-  "syntax" : "python"
-}}}
+---
+title: Prototyping a classroom schedule scraper
+tags: flask, python, beautifulsoup, sqlite, webapp
+date: 2/1/2013
+---
 
 #### The problem and goal
 - Knowledge of which classrooms are vacant and for how long
@@ -15,7 +13,6 @@
 The university has a [site](http://wvprd.ocm.umn.edu/gpcwv/wv3_servlet/urd/run/wv_space.DayList?spdt=20130203,spfilter=945403,lbdviewmode=grid) for this, but it's... how to put this lightly.. bad. 
 I believe this idea was mentioned a year or so ago, but sometimes you just have to make the repo and they will come. (There's a Field of Dreams joke in there somewhere)
 
-<!--more-->
 
 #### The Solution
 I started a github public repo and dropped in some [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) and a python virtualenv and told some people about it.  I had the idea that this project would take a day or so, but the expectations quickly grew. 

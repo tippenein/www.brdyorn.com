@@ -1,9 +1,8 @@
-{{{
-    "title" : "Scraping by with a 128mb VPS"
-  , "tags" : ["vps", "memory limits", "webapp"]
-  , "category" : "web"
-  , "date" : "4/20/2013"
-  }}}
+---
+title: Scraping by with a 128mb VPS
+tags: vps, memory limits, webapp
+date: 4/20/2013
+---
 
 
 #### Getting along with a tiny VPS
